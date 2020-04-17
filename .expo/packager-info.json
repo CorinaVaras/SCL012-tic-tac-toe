@@ -1,9 +1,10 @@
 {
-  "devToolsPort": 19003,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 11915,
-  "expoServerNgrokUrl": "https://qs-az7.anonymous.scl012-tic-tac-toe.exp.direct",
-  "packagerNgrokUrl": "https://packager.qs-az7.anonymous.scl012-tic-tac-toe.exp.direct",
-  "ngrokPid": 11941
+  "packagerPid": 14829,
+  "expoServerNgrokUrl": "https://cp-iiw.anonymous.scl012-tic-tac-toe.exp.direct",
+  "packagerNgrokUrl": "https://packager.cp-iiw.anonymous.scl012-tic-tac-toe.exp.direct",
+  "ngrokPid": 14847,
+  "webpackServerPort": 19006
 }

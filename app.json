@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tic-tac-toe",
-    "slug": "tic-tac-toe",
+    "name": "SCL012-tic-tac-toe",
+    "slug": "scl012-tic-tac-toe",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Is a Tic Tac Toe game made with React Native",
+    "githubUrl": "https://github.com/bdiniscia/SCL012-tic-tac-toe"
   }
 }
