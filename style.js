@@ -10,7 +10,7 @@ export default StyleSheet.create({
 
     logo: {
         flex: 1,
-        aspectRatio: 1.8, 
+        aspectRatio: 1.9, 
         resizeMode: 'contain'
     },
 
@@ -49,7 +49,7 @@ export default StyleSheet.create({
         justifyContent: 'center', 
         borderRadius: 10,
         padding: 10,
-        marginBottom: 40,
+        marginBottom: 50,
     },
 
     containerPlayer: {
