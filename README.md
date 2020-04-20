@@ -1,5 +1,5 @@
 # Tic tac toe - Kwazy Cupcakes 
-![logo](./img/logo.png)
+![logo](./assets/img/logo.png)
 
 ## 1. Juego 🕹️
 
@@ -21,15 +21,15 @@ Puedes encontrar la app publicada en Expo en el siguiente [link](https://expo.io
 
 - En caso de algún ganador: 
 
-![winner](./img/Winner.gif)
+![winner](./assets/img/Winner.gif)
 
 
 - En caso de empate: 
 
-![draw](./img/Draw.gif)
+![draw](./assets/img/draw.gif)
 
 
 - Para empezar un juego nuevo: 
 
-![new game](./img/New-Game.gif)
+![new game](./assets/img/New-Game.gif)
 
