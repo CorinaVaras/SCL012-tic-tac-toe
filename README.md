@@ -21,7 +21,7 @@ Puedes encontrar la app publicada en Expo en el siguiente [link](https://expo.io
 
 - En caso de algún ganador: 
 
-![winner](./assets/img/Winner.gif)
+![winner](./assets/img/win.gif)
 
 
 - En caso de empate: 
@@ -31,5 +31,5 @@ Puedes encontrar la app publicada en Expo en el siguiente [link](https://expo.io
 
 - Para empezar un juego nuevo: 
 
-![new game](./assets/img/New-Game.gif)
+![new game](./assets/img/new-game.gif)
 

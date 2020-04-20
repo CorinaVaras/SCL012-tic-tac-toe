@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Alert, Image, } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, Image, ImageBackground, } from 'react-native';
 import {MaterialCommunityIcons as Icon } from 'react-native-vector-icons';
 import styles from './style.js';
 
@@ -130,8 +130,8 @@ export default class App extends Component {
   renderIcon = (row, col) => {
     let value = this.state.stateOfTheGame[row][col]
     switch(value) {
-      case 1: return <Icon name='cupcake' style={styles.titleCupcake}/>;
-      case -1: return <Icon name='cookie' style={styles.titleCookie}/>;
+      case 1: return <Image source={require('./assets/img/cupcake.png')} style={styles.icons}/>;
+      case -1: return <Image source={require('./assets/img/cookie.png')} style={styles.icons}/>;
       case 0: <View />;
     }
   }
@@ -140,16 +140,20 @@ export default class App extends Component {
   renderPlayer = () => {
     let currentPlayer = this.state.currentPlayer
     switch(currentPlayer) {
-      case 1: return <View style={styles.playerView} ><Text style={styles.player}> Jugador 1 </Text><Icon name='cupcake' style={styles.iconPlayerCupcake}/></View>;
-      case -1: return <View style={styles.playerViewCookie} ><Text style={styles.playerCookie}> Jugador 2 </Text><Icon name='cookie'style={styles.iconPlayerCookie}/></View>;
+      case 1: return <Image source={require('./assets/img/cupcake.png')} style={styles.iconsID}/>;
+      case -1: return <Image source={require('./assets/img/cookie.png')} style={styles.iconsID}/>
     }
   }
 
   render () {
     return (
-      <View style={styles.container}>
+      <ImageBackground 
+      source={require('./assets/img/background2.png')}
+      resizeMode='cover'
+      style={styles.container}>
+
         {/* The Logo */}
-        <Image source={require('./img/logo.png')} style={styles.logo}/>
+        <Image source={require('./assets/img/logo2.png')} style={styles.logo}/>
 
         {/* The Player ID */}
         <View style={styles.containerPlayer}>
@@ -201,10 +205,10 @@ export default class App extends Component {
         <View style={{paddingTop: 40}}/>
         <TouchableOpacity onPress = {() => this.newGame()}>
           <View style = {styles.buttonNewGame}>
-              <Text style = {{color: '#131515'}}>Juego nuevo</Text>
+              <Text style = {{color: '#fff'}}>Juego nuevo</Text>
           </View>
         </TouchableOpacity>
-      </View>
+      </ImageBackground>
     );
   }
 }

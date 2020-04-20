@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native'
 
 export default StyleSheet.create({
     container: {
-        backgroundColor: '#4ecdc4',
+        backgroundColor: '#BFD7FF',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-evenly'
@@ -10,8 +10,18 @@ export default StyleSheet.create({
 
     logo: {
         flex: 1,
-        aspectRatio: 1.9, 
-        resizeMode: 'contain'
+        aspectRatio: 2.3, 
+        resizeMode: 'contain',
+    },
+
+    icons: {
+        height: 75,
+        width: 75,
+    },
+
+    iconsID: {
+        height: 50,
+        width: 50,
     },
 
     containerGrid: {
@@ -33,18 +43,9 @@ export default StyleSheet.create({
         borderColor: '#fff',
     },
 
-    titleCupcake: {
-        color: '#FF1F6C',
-        fontSize: 60,
-    },
-
-    titleCookie: {
-    color: '#FDFF3C',
-    fontSize: 60,
-    },
 
     buttonNewGame: {
-        backgroundColor: '#FDFF3C', 
+        backgroundColor: '#e7627b', 
         alignItems: 'center', 
         justifyContent: 'center', 
         borderRadius: 10,
@@ -55,57 +56,16 @@ export default StyleSheet.create({
     containerPlayer: {
         display: 'flex',
         flexDirection: 'row',
-        paddingBottom: 40,
+        paddingBottom: 35,
         alignItems: 'center',
     },
+    
     gamerID: {
         color: '#fff',
         fontSize: 20,
         fontWeight: 'bold',
     },
 
-    playerView: {
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: '#FDFF3C',
-        padding: 4, 
-        borderRadius: 20,
-    },
 
-    playerViewCookie: {
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: '#FF1F6C',
-        padding: 4, 
-        borderRadius: 20,
-    },
-
-    player: {
-        color: '#FF1F6C',
-        display: 'flex',
-        flexDirection: 'row',
-        fontSize: 18,
-    },
-
-    playerCookie: {
-        color: '#FDFF3C',
-        display: 'flex',
-        flexDirection: 'row',
-        fontSize: 18,
-    },
-
-    iconPlayerCookie: {
-        display: 'flex',
-        color: '#FDFF3C',
-        fontSize: 22,
-        alignItems: 'center',
-    },
-
-    iconPlayerCupcake: {
-        display: 'flex',
-        color: '#FF1F6C',
-        fontSize: 22,
-        alignItems: 'center',
-    }
 
 });
