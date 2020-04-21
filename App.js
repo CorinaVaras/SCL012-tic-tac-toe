@@ -90,50 +90,54 @@ export default class App extends Component {
 
   // Function for the press of a title
   pressTitle = (row, col) => {
-    let winner = this.state.winner
-    if (winner === null) {
-      // Don't let a marked title change
-      let valueOfTheCell = this.state.stateOfTheGame[row][col]
-      if (valueOfTheCell !== 0) {
-        return
-      }
+    let winnerState = this.state.winner
 
-      let currentPlayer = this.state.currentPlayer;
-      let arr = this.state.stateOfTheGame.slice();
+    // To not render icons after there's a winner
+    if (winnerState !== null) {
+      return
+    }
 
-      // Changing the state of the game with press
-      arr[row][col] = currentPlayer;
+    // Don't let a marked title change
+    let valueOfTheCell = this.state.stateOfTheGame[row][col]
+    if (valueOfTheCell !== 0) {
+      return
+    }
+
+    let currentPlayer = this.state.currentPlayer;
+    let arr = this.state.stateOfTheGame.slice();
+
+    // Changing the state of the game with press
+    arr[row][col] = currentPlayer;
+    this.setState({
+      stateOfTheGame: arr
+    })
+
+    // Switch players
+    let nextPlayer = (currentPlayer == 1) ? -1 : 1; 
+    this.setState({
+      currentPlayer: nextPlayer
+    })
+
+    // Change the state of Winner
+    let winner = this.checkWinner()
+    if (winner === 1) {
       this.setState({
-        stateOfTheGame: arr
+        winner: 1,
       })
-
-      // Switch players
-      let nextPlayer = (currentPlayer == 1) ? -1 : 1; 
+      return
+    } else if (winner === -1) {
       this.setState({
-        currentPlayer: nextPlayer
+        winner: -1,
       })
+      return
+    }
 
-      // Change the state of Winner
-      let winner = this.checkWinner()
-      if (winner === 1) {
-        this.setState({
-          winner: 1,
-        })
-        return
-      } else if (winner === -1) {
-        this.setState({
-          winner: -1,
-        })
-        return
-      }
-
-      // Change the state if there's a draw
-      let draw = this.checkForDraw()
-      if (draw === 1) {
-        this.setState({
-          winner: 0,
-        })
-      }
+    // Change the state if there's a draw
+    let draw = this.checkForDraw()
+    if (draw === 1) {
+      this.setState({
+        winner: 0,
+      })
     }
   }
 
