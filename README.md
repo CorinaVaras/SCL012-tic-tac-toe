@@ -29,7 +29,7 @@ Puedes encontrar la app publicada en Expo en el siguiente [link](https://expo.io
 
 - Para empezar un juego nuevo: 
 
-![Juego nuevo](./assets/img/new-game.gif)
+![Juego nuevo](./assets/img/newgame.gif)
 
 ## 5. UI 
 
