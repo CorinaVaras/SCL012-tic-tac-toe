@@ -14,6 +14,7 @@ export default class App extends Component {
         [0,0,0]
       ],
       currentPlayer: 1,
+      winner: null,
     }
   };
 
@@ -30,6 +31,7 @@ export default class App extends Component {
         [0,0,0]
       ], 
       currentPlayer: 1,
+      winner: null,
     })
   }
 
@@ -85,49 +87,59 @@ export default class App extends Component {
   }
 
 
+
   // Function for the press of a title
   pressTitle = (row, col) => {
-    // Don't let a marked title change
-    let valueOfTheCell = this.state.stateOfTheGame[row][col]
-    if (valueOfTheCell !== 0) {
-      return
-    }
+    let winner = this.state.winner
+    if (winner === null) {
+      // Don't let a marked title change
+      let valueOfTheCell = this.state.stateOfTheGame[row][col]
+      if (valueOfTheCell !== 0) {
+        return
+      }
 
-    let currentPlayer = this.state.currentPlayer;
-    let arr = this.state.stateOfTheGame.slice();
+      let currentPlayer = this.state.currentPlayer;
+      let arr = this.state.stateOfTheGame.slice();
 
-    // Changing the state of the game with press
-    arr[row][col] = currentPlayer;
-    this.setState({
-      stateOfTheGame: arr
-    })
+      // Changing the state of the game with press
+      arr[row][col] = currentPlayer;
+      this.setState({
+        stateOfTheGame: arr
+      })
 
-    // Switch players
-    let nextPlayer = (currentPlayer == 1) ? -1 : 1; 
-    this.setState({
-      currentPlayer: nextPlayer
-    })
+      // Switch players
+      let nextPlayer = (currentPlayer == 1) ? -1 : 1; 
+      this.setState({
+        currentPlayer: nextPlayer
+      })
 
-    let winner = this.checkWinner()
-    if (winner === 1) {
-      Alert.alert('¡Ganó el Jugador 1!')
-      this.newGame()
-      return
-    } else if (winner === -1) {
-      Alert.alert('¡Ganó el Jugador 2!')
-      this.newGame()
-      return
-    }
+      // Change the state of Winner
+      let winner = this.checkWinner()
+      if (winner === 1) {
+        this.setState({
+          winner: 1,
+        })
+        return
+      } else if (winner === -1) {
+        this.setState({
+          winner: -1,
+        })
+        return
+      }
 
-    let draw = this.checkForDraw()
-    if (draw === 1) {
-      Alert.alert('¡Hubo un empate!')
-      this.newGame()
+      // Change the state if there's a draw
+      let draw = this.checkForDraw()
+      if (draw === 1) {
+        this.setState({
+          winner: 0,
+        })
+      }
     }
   }
 
   // Fuction to make the icon appear
   renderIcon = (row, col) => {
+    let winner = this.state.winner
     let value = this.state.stateOfTheGame[row][col]
     switch(value) {
       case 1: return <Image source={require('./assets/img/cupcake.png')} style={styles.icons}/>;
@@ -139,10 +151,44 @@ export default class App extends Component {
   // To show the current player on screen
   renderPlayer = () => {
     let currentPlayer = this.state.currentPlayer
-    switch(currentPlayer) {
-      case 1: return <Image source={require('./assets/img/cupcake.png')} style={styles.iconsID}/>;
-      case -1: return <Image source={require('./assets/img/cookie.png')} style={styles.iconsID}/>
+    let winner = this.state.winner
+    if(winner === null) {
+      switch(currentPlayer) { 
+        case 1: return (
+        <View style={styles.containerPlayer}>
+          <Text style={styles.gamerID}>Turno de: </Text>
+          <Image source={require('./assets/img/cupcake.png')} style={styles.iconsID}/>
+        </View>);
+        case -1: return (
+          <View style={styles.containerPlayer}>
+            <Text style={styles.gamerID}>Turno de: </Text>
+            <Image source={require('./assets/img/cookie.png')} style={styles.iconsID}/>
+          </View>)
+      }
+    } else {
+      switch(winner) {
+        case 1: return (
+        <View style={styles.viewWinner}>
+          <Text style={styles.textWinner}>¡Ganó </Text>
+          <Image source={require('./assets/img/cupcake.png')} style={styles.iconsWinner}/>
+          <Text style={styles.textWinner}>!</Text>
+        </View>);
+        case -1: return (
+        <View style={styles.viewWinner}>
+          <Text style={styles.textWinner}>¡Ganó </Text>
+          <Image source={require('./assets/img/cookie.png')} style={styles.iconsWinner}/>
+          <Text style={styles.textWinner}>!</Text>
+        </View>);
+        case 0: return (
+          <View style={styles.viewWinner}>
+            <Text style={styles.textWinner}>¡Empate </Text>
+            <Image source={require('./assets/img/cupcake.png')} style={styles.iconsWinner}/>
+            <Image source={require('./assets/img/cookie.png')} style={styles.iconsWinner}/>
+            <Text style={styles.textWinner}>!</Text>
+          </View>);
+      }
     }
+
   }
 
   render () {
@@ -156,10 +202,8 @@ export default class App extends Component {
         <Image source={require('./assets/img/logo2.png')} style={styles.logo}/>
 
         {/* The Player ID */}
-        <View style={styles.containerPlayer}>
-          <Text style={styles.gamerID}>Turno de: </Text>
-          {this.renderPlayer()}
-        </View>
+
+        {this.renderPlayer()}
 
         {/* THE GRID */}
         <View style={styles.containerGrid} >
@@ -202,8 +246,7 @@ export default class App extends Component {
         </View>
          
         {/* Button of New Game  */}
-        <View style={{paddingTop: 40}}/>
-        <TouchableOpacity onPress = {() => this.newGame()}>
+        <TouchableOpacity style={styles.button} onPress = {() => this.newGame()}>
           <View style = {styles.buttonNewGame}>
               <Text style = {{color: '#fff'}}>Juego nuevo</Text>
           </View>

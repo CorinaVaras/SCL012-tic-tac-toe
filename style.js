@@ -5,13 +5,13 @@ export default StyleSheet.create({
         backgroundColor: '#BFD7FF',
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-evenly'
     },
 
     logo: {
         flex: 1,
-        aspectRatio: 2.3, 
+        width: 350,
         resizeMode: 'contain',
+        marginTop: 30,
     },
 
     icons: {
@@ -25,12 +25,10 @@ export default StyleSheet.create({
     },
 
     containerGrid: {
-        display: 'flex',
-        flexDirection: 'column',
+        flex: 3,
     },
 
     containerRow: {
-        display: 'flex',
         flexDirection: 'row',
     },
 
@@ -43,20 +41,18 @@ export default StyleSheet.create({
         borderColor: '#fff',
     },
 
-
     buttonNewGame: {
         backgroundColor: '#e7627b', 
         alignItems: 'center', 
         justifyContent: 'center', 
         borderRadius: 10,
         padding: 10,
-        marginBottom: 50,
+        marginTop: 15,
     },
 
     containerPlayer: {
-        display: 'flex',
+        flex: 1,
         flexDirection: 'row',
-        paddingBottom: 35,
         alignItems: 'center',
     },
     
@@ -66,6 +62,30 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    button: {
+        flex: 1,
+    },
 
+    winner: {
+        flex: 1,
+        height: 50,
+    },
+
+    viewWinner: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
+    iconsWinner: {
+        height: 50,
+        width: 50,
+    },
+
+    textWinner: {
+        color: '#e7627b',
+        fontSize: 25,
+        fontWeight: 'bold',
+    }
 
 });
