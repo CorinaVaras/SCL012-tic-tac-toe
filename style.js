@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
     container: {
@@ -33,8 +33,8 @@ export default StyleSheet.create({
     },
 
     title: {
-        borderWidth: 5, 
-        width: 100, 
+        borderWidth: 5,
+        width: 100,
         height: 100,
         alignItems: 'center',
         justifyContent: 'center',
@@ -42,12 +42,11 @@ export default StyleSheet.create({
     },
 
     buttonNewGame: {
-        backgroundColor: '#e7627b', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
+        backgroundColor: '#e7627b',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 10,
         padding: 10,
-        marginTop: 15,
     },
 
     containerPlayer: {
@@ -55,7 +54,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    
+
     gamerID: {
         color: '#fff',
         fontSize: 20,
@@ -64,6 +63,7 @@ export default StyleSheet.create({
 
     button: {
         flex: 1,
+        marginTop: 40,
     },
 
     winner: {
